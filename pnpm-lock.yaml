@@ -1009,6 +1009,25 @@ importers:
         specifier: workspace:*
         version: link:../payload
 
+  packages/plugin-cognitive-grammar:
+    dependencies:
+      next:
+        specifier: ^15.2.3
+        version: 15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.50.0)(babel-plugin-macros@3.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4)
+    devDependencies:
+      '@payloadcms/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@payloadcms/translations':
+        specifier: workspace:*
+        version: link:../translations
+      '@payloadcms/ui':
+        specifier: workspace:*
+        version: link:../ui
+      payload:
+        specifier: workspace:*
+        version: link:../payload
+
   packages/plugin-form-builder:
     dependencies:
       '@payloadcms/ui':
