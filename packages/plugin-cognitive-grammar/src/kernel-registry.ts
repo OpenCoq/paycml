@@ -178,7 +178,7 @@ export class CognitiveKernelRegistry implements KernelRegistry {
   /**
    * Process attention allocation kernel
    */
-  private async processAttentionAllocation(kernel: CognitiveKernel, input?: unknown): Promise<unknown> {
+  private processAttentionAllocation(kernel: CognitiveKernel, _input?: unknown): unknown {
     // Implement attention allocation logic
     const budget = kernel.attentionBudget
     const priority = kernel.priority
@@ -309,16 +309,16 @@ export class CognitiveKernelRegistry implements KernelRegistry {
   /**
    * Process action selector kernel
    */
-  private async processActionSelector(kernel: CognitiveKernel, input?: unknown): Promise<unknown> {
+  private processActionSelector(kernel: CognitiveKernel, _input?: unknown): unknown {
     // Implement action selection logic
-    const options = kernel.hypergraphNodes.map(node => ({
+    const options = kernel.hypergraphNodes.map((node: any) => ({
       action: node.id,
       utility: node.attentionValue.shortTermImportance * node.truthValue.strength,
       confidence: node.truthValue.strength
     }))
     
     // Select best action
-    const bestAction = options.reduce((best, current) => 
+    const bestAction = options.reduce((best: any, current: any) => 
       current.utility > best.utility ? current : best
     )
     

@@ -52,10 +52,10 @@ export class CognitiveAttentionAllocator implements AttentionAllocator {
   }
 
   redistribute(): void {
-    const totalAllocated = this.getTotalAllocated()
+    const _totalAllocated = this.getTotalAllocated()
     
     // If over budget, apply emergency redistribution
-    if (totalAllocated > this.budget) {
+    if (_totalAllocated > this.budget) {
       this.applyEmergencyRedistribution()
     } else {
       // Apply normal decay and reallocation

@@ -437,7 +437,7 @@ export const cognitiveGrammarCollection: CollectionConfig = {
   ],
   hooks: {
     beforeValidate: [
-      async ({ data, req }: { data: any; req: any }) => {
+      async ({ data, _req }: { data: any; _req: any }) => {
         // Validate tensor dimensions
         if (data.tensorShape?.dimensions) {
           const dimensions = data.tensorShape.dimensions
@@ -465,10 +465,10 @@ export const cognitiveGrammarCollection: CollectionConfig = {
       },
     ],
     afterChange: [
-      async ({ doc, req }: { doc: any; req: any }) => {
+      async ({ doc, _req }: { doc: any; _req: any }) => {
         // Update activation timestamp when kernel is activated
-        if (doc.active && req?.cognitive?.kernelRegistry) {
-          const registry = req.cognitive.kernelRegistry
+        if (doc.active && _req?.cognitive?.kernelRegistry) {
+          const registry = _req.cognitive.kernelRegistry
           const kernel = registry.get(doc.kernelId)
           if (kernel) {
             // Update the registry state

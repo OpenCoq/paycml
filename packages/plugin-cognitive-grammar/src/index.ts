@@ -111,7 +111,7 @@ export const cognitiveGrammarPlugin = (config: CognitiveGrammarPluginConfig) => 
           ],
           afterChange: [
             ...(collection.hooks?.afterChange || []),
-            async ({ doc, req }: { doc: any; req: any }) => {
+            async ({ doc, _req }: { doc: any; _req: any }) => {
               // Update hypergraph with new data
               if (doc && typeof doc === 'object' && 'id' in doc) {
                 const nodeId = `${collection.slug}:${doc.id}`
